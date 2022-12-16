@@ -49,5 +49,5 @@
     <form:button type="submit" class="btn btn-primary">Submit</form:button>
     <form:button type="reset" class="btn btn-primary">Cancel</form:button>
     <a href="/Admin/Table/Save" class="btn btn-primary">Display Account</a>
-    <h>${message}</h>
+   
 </form:form>

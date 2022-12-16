@@ -83,9 +83,12 @@
 												</tr>
 											</tbody>
 										</c:forEach>
+									
 									</table>
+										
 								</div>
 							</div>
+							
 						</div>
 						<div class="tab-pane fade" id="pills-profile" role="tabpanel"
 							aria-labelledby="pills-profile-tab">

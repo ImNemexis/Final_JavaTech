@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 16, 2022 lúc 09:15 AM
+-- Thời gian đã tạo: Th12 16, 2022 lúc 03:26 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.1.12
 
@@ -47,8 +47,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `fullname`, `address`, `phone`, `email`, `photo`, `activated`, `admin`) VALUES
-(1, 'minh09az', 'Obanhmi1', NULL, NULL, NULL, 'minh09az90@gmail.com', NULL, 1, 1),
-(2, 'minh', '123456', NULL, NULL, NULL, 'minh09az70@gmail.com', NULL, 1, 0);
+(1, 'minh09az', 'Obanhmi1', NULL, NULL, NULL, 'minh09az90@gmail.com', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -67,7 +66,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `status`) VALUES
-(1, 'VGA', 1);
+(1, 'VGA', 1),
+(3, 'Cpu', 1);
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,7 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`id`, `price`, `quantity`, `orderid`, `productid`) VALUES
-(8, 30000000, 3, 7, 2),
-(9, 90000000, 5, 7, 3);
+(12, 30000000, 1, 10, 5);
 
 -- --------------------------------------------------------
 
@@ -113,7 +112,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `address`, `available`, `confirm`, `createdate`, `username`, `account_id`, `price`) VALUES
-(7, '19, Nguyễn Hữu Thọ,Tân Phong,Q7', 0, NULL, '2022-12-15', 'minh09az', 1, 540000000);
+(10, '', 1, 0, '2022-12-16', 'minh09az', 1, 30000000);
 
 -- --------------------------------------------------------
 
@@ -140,7 +139,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `about`, `available`, `createdate`, `discount`, `image`, `name`, `price`, `quantity`, `categoryid`) VALUES
 (2, 'Newest', 1, '2022-12-15', 0, 'background.jpg', 'GTX 3xxx', 30000000, 0, 1),
-(3, 'Newest', 1, '2022-12-15', 0, 'background2.jpg', 'Intel i9', 90000000, 42, 1);
+(5, 'Newest', 1, '2022-12-16', 0, 'background2.jpg', 'Intel i9', 30000000, 51, 3);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -194,25 +193,25 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
