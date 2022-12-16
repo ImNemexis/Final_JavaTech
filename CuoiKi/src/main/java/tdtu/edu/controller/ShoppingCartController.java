@@ -1,5 +1,6 @@
 package tdtu.edu.controller;
 
+import tdtu.edu.Service.SessionService;
 import tdtu.edu.Service.ShoppingCartService;
 import tdtu.edu.dao.OderDetailDAO;
 import tdtu.edu.dao.OrderDAO;
@@ -30,10 +31,11 @@ public class ShoppingCartController {
     OderDetailDAO orderDetails;
     @Autowired
     ShoppingCartService shoppingCartService;
-
+    @Autowired
+    SessionService session;
     @RequestMapping(value = "/shoppingcart/add/{id}" )
     public String add(Model model ,@PathVariable("id") Long id){
-//       Product product = dao.findById(id).get();
+
         Product product = dao.findById(Math.toIntExact(id));
         List<Product> list = dao.findAll();
         CartItem  item = new CartItem ();
@@ -45,6 +47,7 @@ public class ShoppingCartController {
     }
     @RequestMapping("/shoppingcart/index")
     public String index(Model model){
+    	
         Collection<CartItem>  cartItems = shoppingCartService.getCartItems();
         model.addAttribute("items",cartItems);
         model.addAttribute("total",shoppingCartService.getAmount());
@@ -54,6 +57,7 @@ public class ShoppingCartController {
 
     @RequestMapping("/shoppingcart/save")
     public String checkout(Model model ,@ModelAttribute("item") Order item ){
+    	
         Collection<CartItem>  cart = shoppingCartService.getCartItems();
         model.addAttribute("items",cart);
         model.addAttribute("total",shoppingCartService.getAmount());
@@ -70,7 +74,7 @@ public class ShoppingCartController {
         double pricee=0;
         for(CartItem x : carts){
             OrderDetail items = new OrderDetail();
-            //Product prd = dao.findAllById(x.getId());
+          
             prd.setId(x.getId());
             items.setQuantity(x.getQuantity());
             items.setOrder(item);

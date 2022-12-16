@@ -56,7 +56,7 @@ public class AdminAccountController {
                         return "redirect:/Home/views";
                     }
                 }else{
-                        model.addAttribute("message", "Blocked!");
+                        model.addAttribute("message", "Login failed , Your account has been banned.");
                     }
                 }
             }}

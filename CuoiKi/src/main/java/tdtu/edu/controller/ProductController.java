@@ -32,8 +32,6 @@ public class ProductController {
 
     @RequestMapping("/Home/product")
     public String product(Model model, @RequestParam("p") Optional<Integer> p){
-//        Product item = new Product();
-//        model.addAttribute("item",item);
         List<Category> categories = catedao.findAll();
         model.addAttribute("categories",categories);
         Pageable pageable = PageRequest.of(p.orElse(0), 8);
@@ -45,8 +43,7 @@ public class ProductController {
     public String productsort(Model model, @RequestParam("p") Optional<Integer> p , @RequestParam("field") Optional<String> field){
         Sort sort = Sort.by(Sort.Direction.ASC,field.orElse("price"));
         model.addAttribute("field",field.orElse("price").toUpperCase());
-//        Product item = new Product();
-//        model.addAttribute("item",item);
+
         List<Category> categories = catedao.findAll();
         model.addAttribute("categories",categories);
         Pageable pageable = PageRequest.of(p.orElse(0), 8,Sort.Direction.ASC,field.orElse("price"));
@@ -56,10 +53,9 @@ public class ProductController {
     }
     @RequestMapping("/Home/product/sortdesc")
     public String productsortdesc(Model model, @RequestParam("p") Optional<Integer> p , @RequestParam("field") Optional<String> field){
-//        Sort sort = Sort.by(Sort.Direction.ASC,field.orElse("price"));
+
         model.addAttribute("field",field.orElse("price").toUpperCase());
-//        Product item = new Product();
-//        model.addAttribute("item",item);
+
         List<Category> categories = catedao.findAll();
         model.addAttribute("categories",categories);
         Pageable pageable = PageRequest.of(p.orElse(0), 8,Sort.Direction.DESC,field.orElse("price"));
@@ -79,8 +75,7 @@ public class ProductController {
     }
     @RequestMapping(value = "/Product/add/{id}" )
     public String add(@PathVariable("id") Long id , Model model , @RequestParam("p") Optional<Integer> p){
-//        List<Product> items = dao.findAllByCategoryId(id);
-//        model.addAttribute("page",items);
+
         model.addAttribute("style","color:red");
         List<Category> categories = catedao.findAll();
         model.addAttribute("categories",categories);

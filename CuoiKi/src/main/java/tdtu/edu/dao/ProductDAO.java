@@ -21,14 +21,7 @@ public interface ProductDAO extends JpaRepository<Product, Integer> {
        Page<Product> findByCategoryId(long keywords, Pageable pageable);
        Page<Product> findByPriceBetween(double a ,double b, Pageable pageable);
       
-       //Page<Product> allProductsSortedByName = productRepository.findAll(Sort.by("name"));
-//@Query("SELECT new Report(o.category, sum(o.price), count(o)) "
-//        + " FROM Product o "
-//        + " GROUP BY o.category"
-//        + " ORDER BY sum(o.price) DESC")
-//List<Report> getInventoryByCategory();
-//       @Query(value = "  Select TOP(10) * from products where discount >0" , nativeQuery = true)
-//       List<Product> selectTop10();
+
 
 
 }

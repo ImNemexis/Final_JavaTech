@@ -20,7 +20,7 @@ public class TileConfig {
     public TilesConfigurer getTilesConfigurer() {
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
         tilesConfigurer.setDefinitions("/WEB-INF/templates/layout/tiles.xml");
-//		tilesConfigurer.setDefinitions("classpath:tiles.xml");
+
         return tilesConfigurer;
     }
 }

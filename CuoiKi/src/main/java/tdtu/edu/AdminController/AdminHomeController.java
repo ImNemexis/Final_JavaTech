@@ -58,15 +58,13 @@ public class AdminHomeController {
             count++;
             model.addAttribute("count", count);
      }
-     //Thong ke Doanh thu theo nam
+     
         Float orderList = orderdao.selectTotals();
         model.addAttribute("orderList",orderList);
-        //Thong ke Doanh thu theo thang
+       
         Float selectTotalsMonth = orderdao.selectTotalsMonth();
         model.addAttribute("orderListMonth",selectTotalsMonth);
-        //Thong ke ton kho
-        //List<Report> rep = productDAO.getInventoryByCategory();
-       // model.addAttribute("rep", rep);
+      
 
         return "layoutChangeAdmin/bodyadmin";
     	}
@@ -139,8 +137,7 @@ public class AdminHomeController {
     }
      @RequestMapping("/Admin/Statistics/Revenue ")
      public String Revenue(Model model){
-//        List<Order> orderList = orderdao.findAllPriceWithYear();
-//        model.addAttribute("orderList",orderList);
+
         return"";
     }
     @RequestMapping("/Admin/Statistics/User ")
